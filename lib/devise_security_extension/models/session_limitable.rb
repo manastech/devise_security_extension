@@ -5,7 +5,7 @@ module Devise
     # SessionLimited ensures, that there is only one session usable per account at once.
     # If someone logs in, and some other is logging in with the same credentials,
     # the session from the first one is invalidated and not usable anymore.
-    # The first one is redirected to the sign page with a message, telling that 
+    # The first one is redirected to the sign page with a message, telling that
     # someone used his credentials to sign in.
     module SessionLimitable
       extend ActiveSupport::Concern
@@ -15,6 +15,8 @@ module Devise
 
         save(:validate => false)
       end
+
+      attr_accessor :skip_session_limit
 
     end
   end
